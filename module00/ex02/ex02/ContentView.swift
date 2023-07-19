@@ -65,7 +65,7 @@ struct ContentView: View {
                 CalculatorButton(text: "2", color: .gray.opacity(0.3), size: 70)
                 CalculatorButton(text: "3", color: .gray.opacity(0.3), size: 70)
                 CalculatorButton(text: "x", color: .orange.opacity(0.8), size: 70)
-                CalculatorButton(text: "=", color: .orange.opacity(0.8), size: 70)
+                CalculatorButton(text: "/", color: .orange.opacity(0.8), size: 70)
             }
             .padding(.horizontal)
             
