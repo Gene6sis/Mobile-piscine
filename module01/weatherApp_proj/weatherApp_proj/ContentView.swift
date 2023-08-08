@@ -1,25 +1,10 @@
-//
-//  ContentView.swift
-//  weatherApp_proj
-//
-//  Created by Adam Toons on 31/07/2023.
-//
-
-import SwiftUI
-
-//
-//  ContentView.swift
-//  weatherApp_proj
-//
-//  Created by Adam Toons on 31/07/2023.
-//
-
-import SwiftUI
-
 import SwiftUI
 
 struct ContentView: View {
     @State private var selectedTab: Tab = .currently
+    @State private var searchText: String = ""
+    @State private var searchInput: String = ""
+
 
     enum Tab: Hashable {
         case currently
@@ -29,11 +14,11 @@ struct ContentView: View {
         var title: String {
             switch self {
             case .currently:
-                return "Currently"
+                return "currentText"
             case .today:
-                return "Today"
+                return "todayText"
             case .weekly:
-                return "Weekly"
+                return "weekText"
             }
         }
         
@@ -56,14 +41,13 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
-                AppBar()
-
+                AppBar(searchText: $searchText, searchInput: $searchInput)
                 TabView(selection: $selectedTab) {
-                    CurrentlyView()
+                    CurrentlyView(searchText: $searchText)
                         .tag(Tab.currently)
-                    TodayView()
+                    TodayView(searchText: $searchText)
                         .tag(Tab.today)
-                    WeeklyView()
+                    WeeklyView(searchText: $searchText)
                         .tag(Tab.weekly)
                 }
                 .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
@@ -78,15 +62,21 @@ struct ContentView: View {
 }
 
 struct AppBar: View {
+    @Binding var searchText: String
+    @Binding var searchInput: String
+    
     var body: some View {
         HStack {
-            TextField("Search", text: .constant(""))
+            TextField("searchText", text: $searchInput, onCommit: {
+                            // Update searchText when the user presses "Enter"
+                            searchText = searchInput
+                            searchInput = ""
+            })
                 .padding(.horizontal, 16)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .disableAutocorrection(true)
-                .foregroundColor(.black)
             Button(action: {
-                // Perform geolocation action
+                searchText = "Geolocation"
             }) {
                 Image(systemName: "location.circle.fill")
                     .font(.title)
@@ -101,34 +91,52 @@ struct AppBar: View {
 }
 
 struct CurrentlyView: View {
+    @Binding var searchText: String
+    
     var body: some View {
         VStack {
             Image(systemName: "sun.max.fill")
                 .font(.largeTitle)
-            Text("Currently")
+            Text("currentText")
                 .foregroundColor(.black)
+            if !searchText.isEmpty {
+                Text("\(searchText)")
+                    .foregroundColor(.black)
+            }
         }
     }
 }
 
 struct TodayView: View {
+    @Binding var searchText: String
+    
     var body: some View {
         VStack {
             Image(systemName: "calendar")
                 .font(.largeTitle)
-            Text("Today")
+            Text("todayText")
                 .foregroundColor(.black)
+            if !searchText.isEmpty {
+                Text("\(searchText)")
+                    .foregroundColor(.black)
+            }
         }
     }
 }
 
 struct WeeklyView: View {
+    @Binding var searchText: String
+    
     var body: some View {
         VStack {
             Image(systemName: "calendar.badge.clock")
                 .font(.largeTitle)
-            Text("Weekly")
+            Text("weekText")
                 .foregroundColor(.black)
+            if !searchText.isEmpty {
+                Text("\(searchText)")
+                    .foregroundColor(.black)
+            }
         }
     }
 }
@@ -156,7 +164,7 @@ struct FooterTabBar: View {
                 }
             }
         }
-        .frame(height: 20)
+        .frame(height: 50.0)
     }
 }
 

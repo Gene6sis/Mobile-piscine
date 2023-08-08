@@ -11,6 +11,7 @@
 		66DDC7322A78297500AB14D1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66DDC7312A78297500AB14D1 /* ContentView.swift */; };
 		66DDC7342A78297600AB14D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66DDC7332A78297600AB14D1 /* Assets.xcassets */; };
 		66DDC7372A78297600AB14D1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66DDC7362A78297600AB14D1 /* Preview Assets.xcassets */; };
+		66DDC7482A7FC02F00AB14D1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 66DDC74A2A7FC02F00AB14D1 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,8 @@
 		66DDC7312A78297500AB14D1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		66DDC7332A78297600AB14D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66DDC7362A78297600AB14D1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		66DDC73F2A7FB8BE00AB14D1 /* weatherApp-proj-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "weatherApp-proj-Info.plist"; sourceTree = SOURCE_ROOT; };
+		66DDC7492A7FC02F00AB14D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +38,7 @@
 		66DDC7232A78297500AB14D1 = {
 			isa = PBXGroup;
 			children = (
+				66DDC74A2A7FC02F00AB14D1 /* Localizable.strings */,
 				66DDC72E2A78297500AB14D1 /* weatherApp_proj */,
 				66DDC72D2A78297500AB14D1 /* Products */,
 			);
@@ -51,6 +55,7 @@
 		66DDC72E2A78297500AB14D1 /* weatherApp_proj */ = {
 			isa = PBXGroup;
 			children = (
+				66DDC73F2A7FB8BE00AB14D1 /* weatherApp-proj-Info.plist */,
 				66DDC72F2A78297500AB14D1 /* weatherApp_projApp.swift */,
 				66DDC7312A78297500AB14D1 /* ContentView.swift */,
 				66DDC7332A78297600AB14D1 /* Assets.xcassets */,
@@ -126,6 +131,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				66DDC7372A78297600AB14D1 /* Preview Assets.xcassets in Resources */,
+				66DDC7482A7FC02F00AB14D1 /* Localizable.strings in Resources */,
 				66DDC7342A78297600AB14D1 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -144,11 +150,23 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		66DDC74A2A7FC02F00AB14D1 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				66DDC7492A7FC02F00AB14D1 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		66DDC7382A78297600AB14D1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -209,6 +227,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -270,6 +289,7 @@
 				DEVELOPMENT_TEAM = BN6662LPFT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "weatherApp-proj-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,6 +319,7 @@
 				DEVELOPMENT_TEAM = BN6662LPFT;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "weatherApp-proj-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
